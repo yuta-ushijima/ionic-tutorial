@@ -3,7 +3,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,8 +35,9 @@ export class MyApp {
      * これにより、サイドバーをデータバインディングしている
       * */
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'タスク登録', component: HelloIonicPage },
+      //ここでTaskListPageが文字列になっているのは、遅延読み込みさせるため。ただし、importやapp.module.tsへの追加は不要
+      { title: 'タスク一覧', component: 'TaskListPage' }
     ];
   }
 
