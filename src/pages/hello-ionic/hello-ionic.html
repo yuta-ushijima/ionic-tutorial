@@ -3,7 +3,8 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
+    <!--hello-ionic.tsで定義したtitle変数の呼び出し-->
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,7 +21,6 @@
   </form>
 
   <ion-list>
-    <ion-item>タスク1</ion-item>
-    <ion-item>タスク2</ion-item>
+    <ion-item *ngFor="let t of tasks">{{t.name}}</ion-item>
   </ion-list>
 </ion-content>
