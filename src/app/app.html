@@ -1,3 +1,7 @@
+<!--サイドバーの表示-->
+<!--[content]プロパティにcontentを指定することで、メニューが表示されている間は、
+#contentがついている<ion-nav>を右に押し出して表示する。
+-->
 <ion-menu [content]="content">
 
   <ion-header>
@@ -8,7 +12,14 @@
 
   <ion-content>
     <ion-list>
+      <!--
+      *ngFor...繰り返しを指示する構文
+      let p of pages...配列のpagesからpという名前で順番に値を取り出す
+      (click)...onClickと同じ意味。ユーザーがクリックすると、指定したメソッド(ここではopenPage(p))が実行される。
+      (click)で発火するメソッドは、app.components.tsなどの各component.tsで定義する
+      -->
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <!--pの中のtitleを取り出す-->
         {{p.title}}
       </button>
     </ion-list>
@@ -16,4 +27,9 @@
 
 </ion-menu>
 
+<!--メインコンテンツの表示-->
+<!--#contentでion-navにcontentというネーミングをしている(要素参照のため)
+swipeBackEnabled...スワイプを無効化
+[root]...中身に何を表示するか決めるプロパティ(ここではrootPageを指定)
+-->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

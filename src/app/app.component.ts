@@ -17,6 +17,10 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage = HelloIonicPage;
+  /* pagesの型宣言(TypeScript)
+   * title => string型
+   * component => any型
+    * */
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -28,6 +32,9 @@ export class MyApp {
     this.initializeApp();
 
     // set our app's pages
+    /* this.pagesになっているのは、pagesがメソッドとして括られているため
+     * これにより、サイドバーをデータバインディングしている
+      * */
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage }
@@ -42,7 +49,7 @@ export class MyApp {
       this.splashScreen.hide();
     });
   }
-
+  /* (click)で発火させるメソッドの定義 */
   openPage(page) {
     // close the menu when clicking a link from the menu
     this.menu.close();
