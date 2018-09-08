@@ -36,8 +36,9 @@ export class MyApp {
      * これにより、サイドバーをデータバインディングしている
       * */
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'タスク登録', component: HelloIonicPage },
+      //ここでTaskListPageが文字列になっているのは、遅延読み込みさせるため。ただし、importやapp.module.tsへの追加は不要
+      { title: 'タスク一覧', component: 'TaskListPage' }
     ];
   }
 
